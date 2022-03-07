@@ -4,15 +4,15 @@ s = ''
 if (X > 2 * Y) or (Y > 2 * X):
     print('Нет решения')
 elif X >= Y:
-    k = X - Y
-    for i in range(Y - k):
+    r = X - Y
+    for i in range(Y - r):
         s += 'BG'
-    for i in range(k):
+    for i in range(r):
         s += 'BGB'
 else:
-    k = Y - X
-    for i in range(X - k):
+    r = Y - X
+    for i in range(X - r):
         s += 'GB'
-    for i in range(k):
+    for i in range(r):
         s += 'GBG'
 print(s)
