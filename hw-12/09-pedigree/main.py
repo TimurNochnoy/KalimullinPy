@@ -9,8 +9,14 @@ res = dict()
 for name_v in pedigree.values():
     if name_v not in pedigree.keys():
         res[name_v] = 0
-for name_k in pedigree.keys():
-    res[name_k] = res[pedigree[name_k]] + 1
+
+for kid, parent in pedigree.items():
+    root = parent
+    depth = 1
+    while root not in res:
+        root = pedigree[root]
+        depth += 1
+    res[kid] = res[root] + depth
 
 print('“Высота” каждого члена семьи:')
 for key in sorted(res):
